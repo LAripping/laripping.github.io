@@ -3,6 +3,7 @@ layout: post
 title: "Post: Quote"
 categories:
   - Post Formats
+  - "cve-advisory"
 tags:
   - Post Formats
   - quote
