@@ -54,6 +54,8 @@ img {
   height: auto; // prevent max-width from squishing images with defined height
   margin: 0 0 1rem;
   max-width: 100%;
+  margin-right: auto; // these 2 added to center-align the img
+  margin-left: auto;
 }
 
 // see https://github.com/rahul-bothra/parchment/issues/1
