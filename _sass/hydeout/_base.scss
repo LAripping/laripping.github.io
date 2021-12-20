@@ -56,6 +56,12 @@ img {
   max-width: 100%;
 }
 
+// see https://github.com/rahul-bothra/parchment/issues/1
+img.emoji {
+  display: inline;
+  margin: 0; 
+}
+
 table {
   border: 1px solid $border-color;
   border-collapse: collapse;

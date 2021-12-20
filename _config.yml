@@ -4,17 +4,22 @@ remote_theme: fongandrew/hydeout
 markdown:         kramdown
 highlighter:      rouge
 
+kramdown:
+  parse_block_html: true
+
 # Setup --------------
 
 
 # title:            Hydeout
 title:            Leo Tsaousis
-tagline:          'The blog'
+tagline:          'My blog'
 # this appears after  dot on the tab title 
 
 description:      'Security Consultant / Researcher'
 #description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
-url:              https://fongandrew.github.io
+url:              https://laripping.github.io
+# this is used (at least) in the search
+
 baseurl:          '/'
 #baseurl:          '/hydeout'
                   # the optional subpath of your site, e.g. "/blog"
@@ -35,6 +40,9 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-toc
+  - jemoji
+
 
 # Sidebar link settings ------
 
@@ -44,3 +52,4 @@ sidebar_home_link:  false
                                 # page. If you change your paginate_path,
                                 # set this to the root of the paginate_path
                                 # to enable a separate blog link.
+
