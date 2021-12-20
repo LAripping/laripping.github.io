@@ -6,6 +6,7 @@ highlighter:      rouge
 
 kramdown:
   parse_block_html: true
+  auto_ids: true
 
 # Setup --------------
 
@@ -40,7 +41,6 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
-  - jekyll-toc
   - jemoji
 
 

@@ -9,15 +9,7 @@ layout: default
   {% include post-meta.html post=page %}
 
   <div class="post-body">
-    <div id="table-of-contents">
-      <h3> Table of Contents </h3>
-      {% toc %}
-      <br/>
-      <br/>
-    </div>
-    <div id="markdown-content">
-      {{ content }}
-    </div>
+    {{ content }}
     {% include post-tags.html post=page %}
   </div>
 

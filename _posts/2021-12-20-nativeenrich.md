@@ -10,7 +10,6 @@ tags:
   - android
   - ghidra
   - frida
-toc: true  
 last_modified_at: 2021-12-20T17:46:00
 ---
 
@@ -22,6 +21,8 @@ In this blog post I will therefore:
 * Present a novel technique to "enrich" the disassembly with these functions' signatures ...wait for it... using Frida!  
 
 <!--more-->
+
+{% include toc.html %}
 
 
 ## The problem
