@@ -1,7 +1,7 @@
 ---
 layout: category
 title: Blog Posts
-category: "blog"
+category: "blog-posts"
 ---
 
-Another sample category page.
+Blog posts featuring my work, published in different sources, all aggregated here. 
