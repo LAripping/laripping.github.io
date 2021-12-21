@@ -11,7 +11,8 @@ sidebar_link: true
 
 Hi! My name is Leonidas, like the ancient Spartan king, and I built this website to index all my [published work](/category/blog-posts.html), which is currently scattered across the distant corners the internet.
 
-I'm a security professsional with a passion for in-depth technical research, which has led to the discovery of several vulnerabilies issued [CVE IDs](/category/cve-advisory.html).
+I'm a security professsional, holding industry (OSEP,OSCP) and academic (BSc) certifications. My passion lies in technical research, which has led to the discovery of several [vulnerabilities](/category/cve-advisory.html) on software from companies like Cisco, Xiaomi and Wind Hellas.
+<!-- TODO: hotlink OSEP point to the blog -->
 
 Recently, I've had the chance to present my findings at a couple of security conferences, the links for the talks you can find below:  
 * Rootcon 15  &middot; [Video](https://www.youtube.com/watch?v=xB-u0nyttMQ)
@@ -29,3 +30,5 @@ My interests include reverse engineering, mobile security, heavy metal and [good
 If you've liked the stuff in here, spotted a mistake (noone's perfect, not even the mighty Stig), want a full CV, or just feel like talking about music, feel free to ping me on socials! 
 
 Happy Browsing! 
+
+<!-- <img src="/assets/img/linkedin-reality.jpg" style="margin-left:0"/> -->
