@@ -13,7 +13,7 @@ Hi! My name is Leonidas,
 <!-- like the ancient Spartan king,  -->
 and I built this website to index all my [published work](/category/blog-posts.html), which is currently scattered across the distant corners the internet.
 
-I'm a security professsional, holding industry ([OSEP](/blog-posts/2021/04/29/noobs-guide-to-osep.html),OSCP) and academic (BSc) certifications. My passion lies in technical research, which has led to the discovery of several [vulnerabilities](/category/cve-advisory.html) on software from companies like Cisco, Xiaomi and Wind Hellas.
+I'm a security professsional, holding industry (OSEP,OSCP) and academic (BSc) certifications. My passion lies in technical research, which has led to the discovery of several [vulnerabilities](/category/cve-advisory.html) on software from companies like Cisco, Xiaomi and Wind Hellas.
 
 Recently, I've had the chance to present my findings at a couple of security conferences, the links for the talks you can find below:  
 * Rootcon 15  &middot; [Video](https://www.youtube.com/watch?v=xB-u0nyttMQ)
