@@ -68,18 +68,6 @@ Wind Vision's users can register a number of devices, which are then tracked by 
 
 ## Timeline
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Summary</th>
-    </tr>
-  </theader>
-  <tbody>
-    <tr>
-      <td>
-  </tbody> -->
-
 | Date | Summary |
 | ---- | ------- |
 | 14/11/2020 | Wind Vision Application developer contacted. No response was received. |
