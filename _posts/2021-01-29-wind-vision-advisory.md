@@ -21,7 +21,7 @@ last_modified_at: 2021-12-22T15:35:00
 
 [Wind Vision](https://www.wind.gr/gr/gia-ton-idioti/vision/) is a digital television service offered by WIND Hellas, a Greek telecommunication provider, allowing for streaming of digital content. The Wind Vision mobile application, available for Android and iOS devices, allows users to watch TV "on the go" from their smartphone devices. 
 
-The Wind Vision Android application is available on Google Play Store. The latest version currently available at the time of writing (10.0.16) was found vulnerable to four security issues. The vulnerabilities could be combined into an attack chain that would allow a malicious third party application to takeover a victim user's account. After compromising a legitimate account, an adversary could proceed to download and watch TV content abusing the victim’s subscription, or deny the victim access to their account by changing the PIN code and replacing registered devices.
+The Wind Vision Android application is available on [Google Play Store](https://play.google.com/store/apps/details?id=gr.wind.windvision). The latest version currently available at the time of writing (10.0.16) was found vulnerable to four security issues. The vulnerabilities could be combined into an attack chain that would allow a malicious third party application to takeover a victim user's account. After compromising a legitimate account, an adversary could proceed to download and watch TV content abusing the victim’s subscription, or deny the victim access to their account by changing the PIN code and replacing registered devices.
 
 <!--more-->
 
@@ -93,7 +93,7 @@ Wind Vision's users can register a number of devices, which are then tracked by 
 
 ## Update 12/03/2021
 
-Zappware and Wind have released a new version of the Wind Vision application (10.0.18) on [Google Play Store](https://play.google.com/store/apps/details?id=gr.wind.windvision) to address the issues. Users are advised to update to the latest version. Additionally, Zappware has clarified that the vulnerable authentication mechanism was not used for clients other than Wind Vision and their customers are therefore not affected.  
+Zappware and Wind have released a new version of the Wind Vision application (10.0.18) on Google Play Store to address the issues. Users are advised to update to the latest version. Additionally, Zappware has clarified that the vulnerable authentication mechanism was not used for clients other than Wind Vision and their customers are therefore not affected.  
 
 [^1]: Zappware's IPTV solution is believed to be *"currently deployed on millions of devices around the world"* ([source](https://www.linkedin.com/company/zappware/about/)).
 
