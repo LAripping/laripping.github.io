@@ -30,4 +30,6 @@
 - [ ] Add Projects page, sidebar-linked
 - [ ] Images on posts? ...for SEO / social post previews
 - [ ] Excerpt provided in MD directive. The rest only visible on post.html -> to unlock TOCs 
-- [ ] ...then, add Advisory tables (Product+Version - Severity - CVE - type)    
+  - [ ] add Advisory tables (Product+Version - Severity - CVE - type)    
+  - [ ] Re-add Intro/Introduction sections
+- [ ] TOC on the right side?

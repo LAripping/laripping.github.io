@@ -6,9 +6,9 @@ categories:
   - "cve-advisory"
 tags:
   - android
+  - apps
   - wind
   - zappware
-  - cve
 last_modified_at: 2021-12-22T15:35:00
 ---
 

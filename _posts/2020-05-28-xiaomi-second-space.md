@@ -6,6 +6,7 @@ categories:
   - "cve-advisory"
 tags:
   - android
+  - system
   - xiaomi
   - bounty
   - "second space"

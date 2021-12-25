@@ -8,6 +8,7 @@ tags:
   - reversing
   - native
   - android
+  - apps
   - ghidra
   - frida
 last_modified_at: 2021-12-20T17:46:00
