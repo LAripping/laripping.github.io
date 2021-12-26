@@ -1,6 +1,5 @@
 remote_theme: fongandrew/hydeout
 
-# Dependencies ------
 markdown:         kramdown
 highlighter:      rouge
 
@@ -8,26 +7,15 @@ kramdown:
   parse_block_html: true
   auto_ids: true
 
-# Setup --------------
-
-
-# title:            Hydeout
 title:            Leo Tsaousis
 tagline:          'My blog'
-# this appears after  dot on the tab title 
+# this appears after a dot on the tab title 
 
 description:      'Security Consultant / Researcher'
-#description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
 url:              https://laripping.github.io
 # this is used (at least) in the search
 
 baseurl:          '/'
-#baseurl:          '/hydeout'
-                  # the optional subpath of your site, e.g. "/blog"
-                  # NB: This applies to all pages in your Jekyll site.
-                  # If you want to move just the blog index pages but keep
-                  # other pages at root, see the paginate_path and
-                  # sidebar_blog_link below.
 
 author:
   name:           'Leonidas Tsaousis'
@@ -42,10 +30,6 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
   - jemoji
-
-
-# Sidebar link settings ------
-
 
 sidebar_home_link:  false
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog

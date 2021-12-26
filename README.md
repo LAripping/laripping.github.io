@@ -27,6 +27,7 @@
 
 - [x] Re-refactor "related" - 2 common Tags and factor in categories 
 - [ ] Add everything
+- [x] Fix Broken theme on narrow screens
 - [ ] Add Projects page, sidebar-linked
 - [ ] Images on posts? ...for SEO / social post previews
 - [ ] Excerpt provided in MD directive. The rest only visible on post.html -> to unlock TOCs 
