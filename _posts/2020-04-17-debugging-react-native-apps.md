@@ -28,7 +28,7 @@ Now you might ask, Why? React Native allows developers to write their apps in Ja
 
 ## React Native Primer
 
-Before describing the magic, we need to lay the groundwork with some React Native basics. Feel free to skip to  [The technique](#The-technique) if already familiar,  or even jump straight to the [code](#tldr).
+Before describing the magic, we need to lay the groundwork with some React Native basics. Feel free to skip to  [The Technique](#the-technique) if already familiar,  or even jump straight to the [code](#tldr).
 
 Without going into much detail about RN itself, as any reverse engineering effort, we must first understand the engineering behind it, so here's some quick bits:
 
@@ -228,7 +228,7 @@ The smali code looks like this:
 
 After surgically changing just this one character I once again, re-built the apk, signed and installed to the device. On the connected dev-box side, I prepared with `react-native start` and BOOM, I'm immediately greeted with the green top bar! We're even presented the Dev Menu when shaking the device!
 
-<video controls="controls" >
+<video controls="controls" style="width:100%">
   <source src="/assets/video/dev-enabled.mp4" type="video/mp4">
 </video>
 
