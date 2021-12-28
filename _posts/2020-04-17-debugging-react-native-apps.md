@@ -212,7 +212,7 @@ smali/com/rnproject/MainApplication$1.smali
 
 The smali code looks like this:
 
-```smali
+```
 .class Lcom/rnproject/MainApplication$1;
 .super Lcom/facebook/react/ReactNativeHost;
 .source "MainApplication.java"

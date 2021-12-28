@@ -373,7 +373,7 @@ public void a(Activity activity, VersionCheckResponse versionCheckResponse) {
 
 The "if" clause effectively meant that the dialog would appear when the condition would be False. Modification of this condition at runtime using Frida was possible, however I opted for the application repackaging method instead, as a more elegant solution. The Wind Vision application was therefore re-compiled, re-signed and re-installed to the device to proceed with testing after editing just one line in the following smali file after disassembly:
 
-```smali
+```
 # file smali_classes2/com/zappware/nexx4/android/mobile/ui/startup/a/ai.smali
 .method private synthetic a(Landroid/app/Activity;Lcom/zappware/nexx4/android/mobile/data/remote/models/VersionCheckResponse;)V
     ...
