@@ -32,4 +32,4 @@
 - [ ] Excerpt provided in MD directive. The rest only visible on post.html -> to unlock TOCs 
   - [ ] add Advisory tables (Product+Version - Severity - CVE - type)    
   - [ ] Re-add Intro/Introduction sections
-- [ ] TOC on the right side?
+- [ ] (sticky) TOC on the right side? ( [idea](https://github.com/mmistakes/minimal-mistakes/blob/master/_layouts/single.html) )
