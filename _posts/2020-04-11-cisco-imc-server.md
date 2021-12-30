@@ -5,7 +5,8 @@ excerpt_separator: "<!--more-->"
 categories:
   - "cve-advisory"
 tags:
-  - "web application"
+  - appsec
+  - pentesting
   - cisco
   - "imc server"
 last_modified_at: 2021-12-24T14:44:00

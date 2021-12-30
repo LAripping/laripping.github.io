@@ -7,6 +7,7 @@ categories:
 tags:
   - reversing
   - native
+  - technique
   - android
   - apps
   - ghidra

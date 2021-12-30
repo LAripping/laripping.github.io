@@ -6,6 +6,8 @@ categories:
   - "blog-posts"
 tags:
   - reversing
+  - pentesting
+  - technique
   - "react native"
   - debugging
   - apps
