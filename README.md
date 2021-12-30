@@ -26,7 +26,7 @@
 ## TODOs
 
 - [x] Re-refactor "related" - 2 common Tags and factor in categories 
-- [ ] Add everything
+- [x] Add everything
 - [x] Fix Broken theme on narrow screens
 - [ ] Add Projects page, sidebar-linked
 - [ ] Images on posts? Only on List layout. For social post previews (SEO?)
