@@ -52,61 +52,81 @@ As previously stated, my setup includes the following components, but the idea s
 Without further ado, let's dive into it. 
 
 1. On the Linux host, Open "VMware Network Editor" and create a NIC in NAT mode, with "Local DHCP" enabled and a "Virtual Host Adapter" assigned to e.g. `vmnet8`. 
-  > The `/etc/vmware/networking` file will then look like below as per [this](https://serverfault.com/questions/535193/vmware-workstation-how-to-automate-or-script-changes-to-the-virtual-network-co)
-  > 
-  > ```
-  answer VNET_8_DHCP yes
-  answer VNET_8_DHCP_CFG_HASH 3C7D8A0C33D4763D791BAB6265ACFF0A05112134
-  answer VNET_8_HOSTONLY_NETMASK 255.255.255.0
-  answer VNET_8_HOSTONLY_SUBNET 10.0.0.0
-  answer VNET_8_NAT yes
-  answer VNET_8_NAT_PARAM_UDP_TIMEOUT 30
-  answer VNET_8_VIRTUAL_ADAPTER yes
-  > ```
+   
+   The `/etc/vmware/networking` file will then look like below as per [this](https://serverfault.com/questions/535193/vmware-workstation-how-to-automate-or-script-changes-to-the-virtual-network-co)
+    
+   ```
+   answer VNET_8_DHCP yes
+   answer VNET_8_DHCP_CFG_HASH 3C7D8A0C33D4763D791BAB6265ACFF0A05112134
+   answer VNET_8_HOSTONLY_NETMASK 255.255.255.0
+   answer VNET_8_HOSTONLY_SUBNET 10.0.0.0
+   answer VNET_8_NAT yes
+   answer VNET_8_NAT_PARAM_UDP_TIMEOUT 30
+   answer VNET_8_VIRTUAL_ADAPTER yes
+   ```
+
 2. ...restart the Virtual Networks
-  ```bash
-root@host$ vmware-networks --stop
-root@host$ vmware-networks --start
-  ```
+  
+   ```bash
+   root@host$ vmware-networks --stop
+   root@host$ vmware-networks --start
+   ```
+
 3. ...setup the Guest's "Networking" configuration as follows:
-- Type: Custom
-- Adapter: vmnet 8
-  > The VM's `guest.vmx` file will then look like this:
+   - Type: Custom
+   - Adapter: vmnet 8
+  
+   The VM's `guest.vmx` file will then look like this:
+  
+   ```
+   ethernet0.connectionType = "custom"
+   ethernoet0.vnet = "/dev/vmnet8"
   ```
-ethernet0.connectionType = "custom"
-ethernoet0.vnet = "/dev/vmnet8"
-  ```
+
 4. ...and enable IP forwarding
-  ```bash
-root@host$ sysctl -w net.ipv4.ip_forward=1
-  ```
+  
+   ```bash
+   root@host$ sysctl -w net.ipv4.ip_forward=1
+   ```
+
 5. On the Windows guest, ensure internet connectivity using the above settings.
+
 6. Install F-Secure Freedome VPN, as well as the OpenSSH server if not already there (the Edge VMs provided by Microsoft have it preinstalled)
+
 7. Configure the guest's SSH server to accept password-based authentication and restart it to apply changes:
-  ```
-Admninistrator@guest> echo "Host *" > C:\Program Files\OpenSSH\etc\sshd_config
-Admninistrator@guest> echo " PasswordAuthentication yes" >> C:\Program Files\OpenSSH\etc\sshd_config
-Admninistrator@guest> net stop opensshd 
-Admninistrator@guest> net start opensshd
-  ```
+
+   ```
+   Admninistrator@guest> echo "Host *" > C:\Program Files\OpenSSH\etc\sshd_config
+   Admninistrator@guest> echo " PasswordAuthentication yes" >> C:\Program Files\OpenSSH\etc\sshd_config
+   Admninistrator@guest> net stop opensshd 
+   Admninistrator@guest> net start opensshd
+   ```
+
 8. Back on the host, setup SSH dynamic port forwarding:
-  ```bash
-root@host$ ssh -D -v \
- -o PreferredAuthentications=password \
- -o PubkeyAuthentication=no \
- 127.0.0.1:9050 \      #whichever port's on your /etc/proxychains.conf 
- -l IEUser 10.0.0.142  #your VM's user & IP address
-  ```
+   
+   ```bash
+   root@host$ ssh -D -v \
+   -o PreferredAuthentications=password \
+   -o PubkeyAuthentication=no \
+   127.0.0.1:9050 \      #whichever port's on your /etc/proxychains.conf 
+   -l IEUser 10.0.0.142  #your VM's user & IP address
+   ```
+
 9. Now it's time to fire up Freedome on the guest, choose the city/country of preference, and confirm the IP address you got is accepted by the app's server. One of the sites to get the public IP address used (and it's geo-info) is [whatismyip.com](whatismyip.com)
-  ```
-Administrator@guest> net start fsvpnservice
-  ```
+   ```
+   Administrator@guest> net start fsvpnservice
+   ```
+
 10. Then finally, on the host, "proxify" each command (that will only work for TCP connections) and confirm the public IP address is the same as the one displayed in the above step.
-  ```bash
-root@host$ curl --proxy socks4://127.0.0.1:9050 ifconfig.me
-  ```
-  Up to this point, the technique proposed applies to appsec projects and can be used to browse country-restricted websites. It's easy to expand it to mobsec projects and enable country-restricted mobile apps with just 2 more steps:
+    
+    ```bash
+    root@host$ curl --proxy socks4://127.0.0.1:9050 ifconfig.me
+    ```
+
+    Up to this point, the technique proposed applies to appsec projects and can be used to browse country-restricted websites. It's easy to expand it to mobsec projects and enable country-restricted mobile apps with just 2 more steps:
+
 11. Just run the Burp proxy on the host and point the device/app to it from the Wi-Fi settings
+
 12. In Burp settings, configure an "Upstream Proxy" of type "Socks 4" ([Guide](https://portswigger.net/support/burp-suite-upstream-proxy-servers) - probably outdated)
 
 

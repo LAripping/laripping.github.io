@@ -45,100 +45,107 @@ Without going into much detail about RN itself, as any reverse engineering effor
      $ react-native init rnproject
      ```
 
-  * Write code in the provided `App.js`, `index.js` which is just the historical entry point, and other JS files. Need functionality not covered by the bare library? Browse "modules" from https://reactnative.directory/ and install.
+  2. Write code in the provided `App.js`, `index.js` which is just the historical entry point, and other JS files. Need functionality not covered by the bare library? Browse "modules" from https://reactnative.directory/ and install.
 
-    ```bash
+     ```bash
+     $ code *.js						
     $ code *.js						
-    $ npm install react-native-*
-    ```
+     $ code *.js						
+     $ npm install react-native-*
+     ```
 
-  * Start a local dev-server (port 8081) to interact with the running app, package and serve the bundle (more on this later) 
+  3. Start a local dev-server (port 8081) to interact with the running app, package and serve the bundle (more on this later) 
 
-    ```bash
-    $ react-native start
-    ```
+     ```bash
+     $ react-native start
+     ```
 
-    Which looks like this:
+     Which looks like this:
 
-    <img src="/assets/img/rn-start.png" />
+     <img src="/assets/img/rn-start.png" />
     
 
-  * (in another terminal) Build, install & run the app on a connected device or emulator with a single-command
+  4. (in another terminal) Build, install & run the app on a connected device or emulator with a single-command
 
-    ```bash
-    $ react-native run-android
-    # similar to
-    $ cd android/
-    $ ./gradlew assembleDebug
-    ```
+     ```bash
+     $ react-native run-android
+     # similar to
+     $ cd android/
+     $ ./gradlew assembleDebug
+     ```
 
-    And you get the sample app:
+     And you get the sample app:
     
-    <img src="/assets/img/rn-run-android.png" style="height:25em"/>
+     <img src="/assets/img/rn-run-android.png" style="height:25em"/>
     
 
-  * To buld & sign a release variant, ready for Play Store:
+  5. To buld & sign a release variant, ready for Play Store:
 
-    ```bash
-    $ react-native run-android --variant=release
-    ```
+     ```bash
+     $ react-native run-android --variant=release
+     ```
 
+     Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
     Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
+     Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
 
-  * To perform only this last step, or insert React Native functionality to existing apps, just create the bundle from the JS files & modules with
+  6. To perform only this last step, or insert React Native functionality to existing apps, just create the bundle from the JS files & modules with
 
-
-    ```bash
+     ```bash
+     $ react-native bundle 
     $ react-native bundle 
-    ```
+     $ react-native bundle 
+     ```
 
     
 
 * When running debug builds, there's React Native provides a **Developer menu** seen on the left picture below, which appears when "shaking" the device, or faking a "Menu" button click with `adb shell input keyevent 82`. Clicking the last option of this menu gets you to the screen on the right: 
 
   
-<table>
-    <tr>
-        <td><img src="/assets/img/rn-dev-menu.png" /></td>
-        <td><img src="/assets/img/rn-dev-settings.png" /></td>
-    </tr>
-</table>
+  <table>
+      <tr>
+          <td><img src="/assets/img/rn-dev-menu.png" /></td>
+          <td><img src="/assets/img/rn-dev-settings.png" /></td>
+      </tr>
+  </table>
 
 
   
 * From this menu, clicking "Debug" will trigger one of the following tools on the development box side, to facilitate full-blown **debugging**. Under the hood, this changes the execution context of the JS bundle from the device's  JavaScriptCore engine to Chrome's `debuggerWorker` thread powered by V8 engine. 
 
-  * Chrome Dev Tools: If not open, point a new tab to [localhost:8081/debugger-ui]() To view the Console and Sources tabs, as if you're debugging a web application's JS code.
+  1. Chrome Dev Tools: If not open, point a new tab to [localhost:8081/debugger-ui]() To view the Console and Sources tabs, as if you're debugging a web application's JS code.
 
-    <img src="/assets/img/rn-debug.png" />
+     <img src="/assets/img/rn-debug.png" />
 
 
-  * `react-devtools`. This is an official npm package for React Component introspection. All you need is:
+  2. `react-devtools`. This is an official npm package for React Component introspection. All you need is:
 
-    ```bash
-    $ npm install --global react-devtools
-    $ react-devtools
-    ```
+     ```bash
+     $ npm install --global react-devtools
+     $ react-devtools
+     ```
 
+     ...and you get: 
     ...and you get: 
+     ...and you get: 
     
-    <img src="/assets/img/rn-reactdevtools.png" />
+     <img src="/assets/img/rn-reactdevtools.png" />
     
 
-  * `react-native-debugger` This is a standalone Electron app combining all the above (Chrome & React Dev Tools) plus another tool called Redux debugger which is out of our scope. Using it is as simple as:
+  3. `react-native-debugger` This is a standalone Electron app combining all the above (Chrome & React Dev Tools) plus another tool called Redux debugger which is out of our scope. Using it is as simple as:
 
-    ```bash
-    $ wget https://github.com/jhen0409/react-native-debugger/releases/<latest>.deb
-    $ dpkg -i react-native-debugger_0.11.1_amd64.deb
-    $ react-native-debugger
-    ```
+     ```bash
+     $ wget https://github.com/jhen0409/react-native-debugger/releases/<latest>.deb
+     $ dpkg -i react-native-debugger_0.11.1_amd64.deb
+     $ react-native-debugger
+     ```
 
+     This looks like: 
     This looks like: 
+     This looks like: 
     
-    <img src="/assets/img/rn-reactnativedebugger.png" />
+     <img src="/assets/img/rn-reactnativedebugger.png" />
     
-
-
   The application communicates with all these tools over HTTP(+websocket) interfaces by reaching `localhost` server as some previous `adb reverse` commands have forwarded the ports to the device side. 
 
   
