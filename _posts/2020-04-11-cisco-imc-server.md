@@ -10,6 +10,7 @@ tags:
   - cisco
   - "imc server"
 last_modified_at: 2021-12-24T14:44:00
+post-img: assets/img/cisco-xpand.jpeg
 ---
 
 {% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/cisco-imc-server-multiple-vulnerabilities/)" %}

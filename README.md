@@ -29,7 +29,8 @@
 - [x] Add everything
 - [x] Fix Broken theme on narrow screens
 - [ ] Add Projects page, sidebar-linked
-- [ ] Images on posts? Only on List layout. For social post previews (SEO?)
+- [x] Images on posts? Only on Index layout.
+  - [ ] Make them appear in social post preview (SEO)
 - [x] Excerpt provided in MD directive. The rest only visible on post.html -> to unlock TOCs 
   - [x] add Advisory tables (Product+Version - Severity - CVE - type)    
   - [x] Re-add Intro/Introduction sections

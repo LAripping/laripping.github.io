@@ -14,6 +14,7 @@ tags:
   - android
   - ios
 last_modified_at: 2021-12-28T13:48:00
+post-img: assets/img/React-Native-Titre.png
 ---
 
 {% include toc.html %}

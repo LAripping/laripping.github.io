@@ -16,6 +16,13 @@ layout: default
     </h2>
     {% include post-meta.html post=post %}
 
+    {% if post.post-img %}
+    <a href="{{ post.url | relative_url }}" style="text-decoration:none;">
+      <img class="post-img" src="{{ post.post-img | relative_url }}" alt="{{ post.title | escape }}">
+    </a>
+    {% endif %} 
+
+
     {% if post.excerpt %}
       {{ post.excerpt }}
     {% else %}

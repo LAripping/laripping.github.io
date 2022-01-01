@@ -8,6 +8,7 @@ tags:
   - osep
   - offsec
 last_modified_at: 2021-12-21T15:59:00
+post-img: assets/img/offsec.png
 ---
 
 {% include toc.html %}

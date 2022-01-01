@@ -13,6 +13,8 @@ tags:
   - streaming
   - takeover
 last_modified_at: 2021-12-24T15:13:00
+# post-img: assets/img/windvision-xpand.jpeg
+post-img: assets/img/diagram-transparent-blackfont.png
 ---
 
 {% include note.html content="This blog post was originally published on [F-Secure LABS](https://labs.f-secure.com/blog/wind-vision-writeup/)" %}

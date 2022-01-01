@@ -206,3 +206,11 @@ input[type='submit'] {
 .alert-info .alert-link {
   color: #245269
 }
+
+
+.post-img {
+  max-height: 10em;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}

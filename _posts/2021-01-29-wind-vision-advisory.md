@@ -10,6 +10,7 @@ tags:
   - wind
   - zappware
 last_modified_at: 2021-12-22T15:35:00
+post-img: assets/img/wind-vision-mobile-app-icon-expand.png
 ---
 
 {% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/wind-vision)" %}
