@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Click here for free TV! Chaining bugs to takeover Wind Vision accounts"
-excerpt_separator: "<!--more-->"
+excerpt: "Last year, while playing around with the <a href='https://play.google.com/store/apps/details?id=gr.wind.windvision'>Wind Vision mobile application</a>, I noticed that the login process was implemented in a potentially risky way. I decided to take a look, which led to an in-depth analysis over the course of two months. In brief, I found a way for a malicious app to takeover the victim's Wind Vision account, by chaining a series of otherwise unimportant bugs, starting with just one wrong click. As a note, the issues have already been <a href='https://labs.f-secure.com/advisories/wind-vision/'>responsibly disclosed</a> to Wind and the software vendor, and the app was recently updated to prevent the attack.<br/><br/>This post aims to highlight the caveats of authentication flows and inter-process communications (IPC) for mobile application developers, and to also outline the overall risk imposed by these flaws to end users.<br/><br/>"
 categories:
   - "blog-posts"
 tags:
@@ -17,14 +17,13 @@ last_modified_at: 2021-12-24T15:13:00
 
 {% include note.html content="This blog post was originally published on [F-Secure LABS](https://labs.f-secure.com/blog/wind-vision-writeup/)" %}
 
+{% include toc.html %}
+
+## Intro 
+
 Last year, while playing around with the [Wind Vision mobile application](https://play.google.com/store/apps/details?id=gr.wind.windvision), I noticed that the login process was implemented in a potentially risky way. I decided to take a look, which led to an in-depth analysis over the course of two months. In brief, I found a way for a malicious app to takeover the victim's Wind Vision account, by chaining a series of otherwise unimportant bugs, starting with just one wrong click. As a note, the issues have already been [responsibly disclosed](https://labs.f-secure.com/advisories/wind-vision/) to Wind and the software vendor, and the app was recently updated to prevent the attack. 
 
 This post aims to highlight the caveats of authentication flows and inter-process communications (IPC) for mobile application developers, and to also outline the overall risk imposed by these flaws to end users.
-
-<!--more-->
-
-{% include toc.html %}
-
 
 
 ## Wind Who?
@@ -93,112 +92,124 @@ Device-Id: R2pNRE...mZHhEWQA99
 A simplified walkthrough of the authentication and authorisation flow observed is attached below, redacted when necessary. In OAuth speak, this is known as a [OpenID Connect](https://openid.net/connect/) flow with an [Authorization Code](https://www.oauth.com/oauth2-servers/server-side-apps/authorization-code/) grant.
 
 1. **Configuration Request**, issued by the native application (OkHttp client), which retrieves the URL to be loaded in the webview.
-    ```
-    GET https://pridp.wind.gr/.well-known/openid-configuration
     
-    200 OK 
-    {
-    “version”:”1.0”,  
-    “authorization_endpoint”:”https://pridp.wind.gr/oauth2/v1/authorize“,
-    ...
-    ```
+   ```
+   GET https://pridp.wind.gr/.well-known/openid-configuration
+    
+   200 OK 
+   {
+       “version”:”1.0”,  
+       “authorization_endpoint”:”https://pridp.wind.gr/oauth2/v1/authorize“,
+       ...
+   ```
+   
 2. **Authorization Request**, issued by the webview instantiated by the application, to kickoff the login flow.
-    ```
-    GET https://pridp.wind.gr/oauth2/v1/authorize?
-            response_type=code&
-            redirect_uri=nexx4://pridp.wind.gr/AuthCallback&
-            scope=openid offline_access profile IPTVUserID&
-            client_id=CLIENT_ID
+   ```
+   GET https://pridp.wind.gr/oauth2/v1/authorize?
+           response_type=code&
+           redirect_uri=nexx4://pridp.wind.gr/AuthCallback&
+           scope=openid offline_access profile IPTVUserID&
+           client_id=CLIENT_ID
     
-    302 Found
-    Location: /my.policy
-    ```
+   302 Found
+   Location: /my.policy
+   ```
+
 3. **Policy Request**, which retrieves the URL of the Login page.
-    ```
-    GET https://pridp.wind.gr/my.policy
+   
+   ```
+   GET https://pridp.wind.gr/my.policy
     
-    200 OK
-    <html>
-        <body>
-        ...
-            <script>
-                document.external_data_post_cls.action = unescape(“https://www.wind.gr/wind/v2/myTv/login/myTvLogin.jsp/“);        
-                document.external_data_post_cls.submit();
-            </script>
-        </body>
-    </html>
-    ```
+   200 OK
+   <html>
+       <body>
+       ...
+           <script>
+               document.external_data_post_cls.action = unescape(“https://www.wind.gr/wind/v2/myTv/login/myTvLogin.jsp/“);        
+               document.external_data_post_cls.submit();
+           </script>
+       </body>
+   </html>
+   ```
+
 4. **Login Page Request**, to retrieve and render the HTML form contained in the Login page. Also includes multiple JavaScript files, one of which includes the URL to submit the credentials to.
-    ```
-    POST https://www.wind.gr/wind/v2/myTv/login/myTvLogin.jsp/
-    
-    200 OK
-    <html>
-        <body>
-            <form>
-            ....
-    ```
+   
+   ```
+   POST https://www.wind.gr/wind/v2/myTv/login/myTvLogin.jsp/
+   
+   200 OK
+   <html>
+       <body>
+           <form>
+           ....
+   ```
+
 5. **Login Requests**, submitting user’s credentials to the aforementioned URL, performed by JavaScript code executing inside the webview.
-    ```
-    POST https://www.wind.gr/ATGWebservicesProxy/PayTVLogin/
+   
+   ```
+   POST https://www.wind.gr/ATGWebservicesProxy/PayTVLogin/
     
-    username=USERNAME&password=PASSWORD&...
+   username=USERNAME&password=PASSWORD&...
     
-    200 OK
-    { 
-    “zapwareIDs”:[ZID], 
-    “status”: “LOGIN” or “ERROR” 
-    }
-    ```
+   200 OK
+   { 
+      “zapwareIDs”:[ZID], 
+      “status”: “LOGIN” or “ERROR” 
+   }
+   ```
 
-    The status result field dictates whether the second request below will be performed, re-submitting credentials to the policy endpoint. In case of successful authentication, the webview redirects the flow back to the native application using a URL schemes registered as the one highlighted below:
+   The status result field dictates whether the second request below will be performed, re-submitting credentials to the policy endpoint. In case of successful authentication, the webview redirects the flow back to the native application using a URL schemes registered as the one highlighted below:
 
-    ```
-    POST https://pridp.wind.gr/my.policy?_DARGS=/wind/myTv/login/myTv.jsp.2
+   ```
+   POST https://pridp.wind.gr/my.policy?_DARGS=/wind/myTv/login/myTv.jsp.2
     
-    username=USERNAME&password=PASSWORD&customeriptvid=ZID...
+   username=USERNAME&password=PASSWORD&customeriptvid=ZID...
 
-    302 Found
-    Location: nexx4://pridp.wind.gr/AuthCallback?code=CODE
-    ```
-
+   302 Found
+   Location: nexx4://pridp.wind.gr/AuthCallback?code=CODE
+   ```
 
 6. **Token Request**, issued by the native application code, to exchange the authorization code with a valid session token. The `client_id` and `client_secret` values can be found on the application source code after basic reverse engineering, as no obfuscation was employed.
-    ```
-    POST https://pridp.wind.gr/oauth2/v1/token
+
+   ```
+   POST https://pridp.wind.gr/oauth2/v1/token
     
-    code=CODE&grant_type=authorization_code&redirect_uri=nexx4://pridp.wind.gr/AuthCallback&
-    scope=openid offline_access profile IPTVUserID&client_id=CLIENT_ID&client_secret=CLIENT_SECRET
+   code=CODE&grant_type=authorization_code&redirect_uri=nexx4://pridp.wind.gr/AuthCallback&
+   scope=openid offline_access profile IPTVUserID&client_id=CLIENT_ID&client_secret=CLIENT_SECRET
 
-    200 OK 
-    {    “id_token”: “eyJh....”
+   200 OK 
+   {    “id_token”: “eyJh....”
     ```
+
 7. **Access Key Request**, finally issued by the native application code against a previously defined AWS endpoint, to exchange the `id_token` to an access key which can then be used  in all subsequent GraphQL requests towards the Wind Vision server.
-    ```
-    POST https://cognito-identity.eu-west-1.amazonaws.com/
-    {
-        “IdentityId”:”eu-west-1:1a18ca6b-0c60-404a-b196-9667b460fc17”,
-        “Logins”:{
-            “pridp.wind.gr”:”eyJh...”
+    
+   ```
+   POST https://cognito-identity.eu-west-1.amazonaws.com/
+   {
+       “IdentityId”:”eu-west-1:1a18ca6b-0c60-404a-b196-9667b460fc17”,
+       “Logins”:{
+           “pridp.wind.gr”:”eyJh...”
 
-    200 OK
-    {
-        “Credentials”:{
-            “AccessKeyId”:”ASIA....”
-    ```
+   200 OK
+   {
+       “Credentials”:{
+           “AccessKeyId”:”ASIA....”
+   ```
+
 8. **GraphQL API Calls**, like the one below, all subsequent GraphQL requests to the API server are authenticated with this Access Key retrieved previously, attached in the Authorization header:
-    ```
-    POST https://client.tvclient.wind.gr/secure/v1/graphql/
-    Authorization: AWS4-HMAC-SHA256 Credential=ASIA....
-    {
-    “query”:”query User { me { ...”,
-        “operationName”:”User”,
-    “variables”:{}
-    }
+   
+   ```
+   POST https://client.tvclient.wind.gr/secure/v1/graphql/
+   Authorization: AWS4-HMAC-SHA256 Credential=ASIA....
+   {
+      “query”:”query User { me { ...”,
+          “operationName”:”User”,
+      “variables”:{}
+   }
 
-    200 OK
-    {     “data”:{          ....
-    ```
+   200 OK
+   {     “data”:{          ....
+   ```
 
 As can be seen in steps 2 and 6 however, no further claims need to be known by the initiator when requesting authorization, which is directly granted a token by the server, without any identity verification. As a result, anyone in possession of a valid authorization code such as the `CODE` value retrieved in step 5, can exchange it for an OAuth token, and subsequently an API access key. As the authorization code was sent across applications using the aforementioned insecure URL Schemes, steps 6-8 can be reproduced by a malicious third party application who would intercept this code. This would eventually lead to the compromise of the user’s account, as all other parameters involved were constants.
 

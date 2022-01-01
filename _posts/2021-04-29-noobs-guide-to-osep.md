@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Noob's guide to OSEP"
-excerpt_separator: "<!--more-->"
+excerpt: "OSEP is a new cert. It was introduced by Offsec in November 2020 and it immediately felt like they would finally address the gap in their certs for the netsec area, while simultaneously throwing Offsec in the market of Red Team related certs/courses.<br/><br/>"
 categories:
   - "blog-posts"
 tags:
@@ -10,9 +10,11 @@ tags:
 last_modified_at: 2021-12-21T15:59:00
 ---
 
-OSEP is a new cert. It was introduced by Offsec in November 2020 and it immediately felt like they would finally address the gap in their certs for the netsec area, while simultaneously throwing Offsec in the market of Red Team related certs/courses. 
+{% include toc.html %}
 
-<!--more-->
+## Intro
+
+OSEP is a new cert. It was introduced by Offsec in November 2020 and it immediately felt like they would finally address the gap in their certs for the netsec area, while simultaneously throwing Offsec in the market of Red Team related certs/courses. 
 
 I was always an Offsec fan, I like how they shape their exams, their labs, the never-expiring certificates they hand out, even the controversial Try Harder motto, and the overall recognition by the industry. Just by looking at the associated "PEN-300 - Evasion Techniques and Breaching Defences" course's [syllabus](https://www.offensive-security.com/documentation/PEN300-Syllabus.pdf) one can quickly realise it focuses primarily in Windows/AD/Kerberos concepts, with a twist of Linux-based DevOps solutions commonly found (and exploited) in these sorts of networks. It's also a great and rare source for all the methods and techniques used in the remaining stages of the killchain i.e. beyond Enumeration, Exploitation & Privilege Escalation which are covered by OSCP. I'm talking things like Post Exploitation (Persistence, Reconnaissance) and Lateral Movement, for which you might find some resources here and there, but not an organised, zero-to-hero kind of course like the Offsec ones. Finally, most of the content is coated with AV evasion techniques and progressively more details into the internals of these solutions, instead of just a one-off chapter of theory. 
 You'll also be facing fully patched, up to date machines, which is kinda cool if you ask me, no vulnerable services listening with known exploits / MSF modules.
@@ -28,7 +30,6 @@ One way or another, the foundation and knowledge gained through the course and l
 
 Without further ado, let's get into the meat and potatoes of this thing.
 
-{% include toc.html %}
 
 ## The Course & Labs
 

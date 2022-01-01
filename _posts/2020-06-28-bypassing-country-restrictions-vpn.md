@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pivoting Through VPN to Pentest Country-Restricted Apps" 
-excerpt_separator: "<!--more-->"
+excerpt: "In this article I'll describe a solution to bypass country restrictions imposed by web (or mobile) apps we're tasked to pentest, using a virtual machine (VM) running our VPN of choice. You know, these cool ones that provide multiple gateway servers across the globe to choose from, like <a href='https://www.f-secure.com/en/home/products/freedome'>F-Secure's FREEDOME</a>.<br/><br/>"
 categories:
   - "blog-posts"
 tags:
@@ -12,10 +12,6 @@ tags:
   - vm
 last_modified_at: 2021-12-28T13:48:00
 ---
-
-In this article I'll describe a solution to bypass country restrictions imposed by web (or mobile) apps we're tasked to pentest, using a virtual machine (VM) running our VPN of choice. You know, these cool ones that provide multiple gateway servers across the globe to choose from, like [F-Secure's FREEDOME](https://www.f-secure.com/en/home/products/freedome).
-
-<!--more-->
 
 {% include toc.html %}
 

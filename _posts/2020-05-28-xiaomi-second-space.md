@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Xiaomi Redmi 5 Plus: Second Space Password Bypass'
-excerpt_separator: "<!--more-->"
+excerpt: "Xiaomi Second Space replaces Android User Profiles on MIUI devices. It allows for a Primary (admin) and a Second user to switch profiles via an icon on the homescreen or from the lock screen. Both user spaces can be protected by a PIN or password.<br/><br/>A method was discovered in the Xiaomi MIUI System, that allows a user to switch between spaces without providing a password or PIN. This requires Second Space and Password / PIN screen lock to be enabled along with USB debugging.The vulnerability is triggered by an ADB command which can immediately switch space without requiring input of the password.<br/><br/>"
 categories:
   - "cve-advisory"
 tags:
@@ -15,8 +15,16 @@ last_modified_at: 2021-12-22T15:35:00
 
 {% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/xiaomi-second-space/)" %}
 
-<!-- {% include toc.html %} -->
-<!-- Again, TOC messes things up -->
+| **Product** | Xiaomi Redmi 5 Plus |
+| **Severity** |<span style="color:orange">Medium</span> |
+| **CVE IDs** |	N/A |
+| **Type**	| Authentication Bypass |
+
+<br/><br/>
+
+{% include toc.html %}
+
+## Introduction 
 
 Xiaomi Second Space replaces Android User Profiles on MIUI devices. It allows for a Primary (admin) and a Second user to switch profiles via an icon on the homescreen or from the lock screen. Both user spaces can be protected by a PIN or password.
 
@@ -26,7 +34,6 @@ The vulnerability is triggered by an ADB command that sends an intent to start t
 
 The issue was discovered in a Redmi 5 Plus device, but it has been confirmed to affect several of the latest MIUI versions.
 
-<!--more-->
 
 ## Proof of Concept
 

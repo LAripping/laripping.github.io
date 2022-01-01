@@ -2,6 +2,7 @@
 layout: post
 title: 'Native Enrich: Scripting Ghidra and Frida to discover "hidden" JNI functions'
 excerpt_separator: "<!--more-->"
+excerpt: "Recently, while doing some Android reverse engineering, I bumped into the following problem: After digging into the decompiled Java code, my analysis for the functionality of interest led me to a native function... which was nowhere to be found in the disassembly of the respective .so library. What sorcery is this? And where on god's green earth is my native function in that massive ELF blob?<br/><br/>In this blog post I will therefore:<br/><ul><li>Explain why sometimes JNI functions don't pop up in the Function Listing, and most importantly</li><li>Present a novel technique to 'enrich' the disassembly with these functions' signatures ...wait for it... using Frida!</li></ul>" 
 categories:
   - "blog-posts"
 tags:
@@ -14,15 +15,6 @@ tags:
   - frida
 last_modified_at: 2021-12-20T17:46:00
 ---
-
-Recently, while doing some Android reverse engineering, I bumped into the following problem: After digging into the decompiled Java code, my analysis for the functionality of interest led me to a native function... which was nowhere to be found in the disassembly of the respective .so library. What sorcery is this? And where on god's green earth is my native function in that massive ELF blob?
-
-In this blog post I will therefore:
-
-* Explain why sometimes JNI functions don't pop up in the Function Listing, and most importantly
-* Present a novel technique to "enrich" the disassembly with these functions' signatures ...wait for it... using Frida!  
-
-<!--more-->
 
 {% include toc.html %}
 

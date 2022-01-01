@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Cisco IMC Server: Multiple Vulnerabilities'
-excerpt_separator: "<!--more-->"
+excerpt: "Several vulnerabilities were discovered by F-Secure Consulting in the Cisco Integrated Management Controller (IMC) web application. The vulnerabilities combined can be leveraged to enumerate users and bypass authorisation controls.<br/><br/>"
 categories:
   - "cve-advisory"
 tags:
@@ -14,14 +14,21 @@ last_modified_at: 2021-12-24T14:44:00
 
 {% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/cisco-imc-server-multiple-vulnerabilities/)" %}
 
-<!-- {% include toc.html %} -->
-<!-- Again, TOC messes things up -->
+| **Product** | Cisco IMC Server 4.0(4h) |
+| **Severity** |<span style="color:orange">Medium</span> |
+| **CVE IDs** |CVE-2020-26062, CVE-2020-26063 |
+| **Type**	| Authorization Bypass, Username Enumeration |
+
+<br/><br/>
+
+{% include toc.html %}
+
+## Introduction
 
 Several vulnerabilities were discovered by F-Secure Consulting in the Cisco Integrated Management Controller (IMC) web application (CVE-2020-26062, CVE-2020-26063 and CSCvv07284). An example datasheet of the product can be found [here](https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-b-series-blade-servers/data_sheet_c78-728802.html).
 
 The vulnerabilities combined can be leveraged to enumerate users and bypass authorisation controls. 
 
-<!--more-->
 
 ## Vulnerabilities Discovered
 
@@ -34,13 +41,13 @@ Three security issues were identified affecting the IMC application version 4.0(
 * Cisco Integrated Management Controller Software Authorization Bypass Vulnerability<br/>[https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-auth-zWkppJxL](https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-auth-zWkppJxL)
 
 
-### Username Enumeration
+**Username Enumeration**
 > CVE-2020-26062 - CVSSv3.1 Score: 5.3
 
 The Username Enumeration vulnerability was discovered within the log in page of the IMC web interface. In its default configuration, there is no account lockout threshold enforced; offering the opportunity for an adversary to brute-force enumerated accounts.
 
 
-### Integrity Hash Forgery
+**Integrity Hash Forgery**
 > CCSCvv07284 - CVSSv3.1 Score: 3.1
 
 Once authenticated to the application communications with the server consist of HTTP POST requests sent to a set of XML-based APIs. These API calls use an integrity protection scheme. User supplied parameter values are hashed and the resulting value is placed in the `CPSG_VAR HTTP` header. The hashing functionality is implemented in client-side JavaScript. 
@@ -109,7 +116,7 @@ The screenshot below illustrates its use to generate valid requests that will pa
 ![](/assets/img/cisco-imc-hash-forgery.png)
 
 
-### Authorization Bypass
+**Authorization Bypass**
 > CVE-2020-26063 - CVSSv3.1 Score: 5.4
 
 Authorisation checks were improperly configured and/or found to be missing on 2 of the IMC API endpoints. It is possible to forge a request using the Integrity Hash Forgery (CCSCvv07284) issue that results in the execution of functionality that is not normally available to some users, such as those with "read-only" roles, for example the "ping" and "set SSH server banner" functions.

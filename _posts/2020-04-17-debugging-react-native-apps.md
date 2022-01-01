@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Debugging React Native Apps You Didn't Write" 
-excerpt_separator: "<!--more-->"
+excerpt: "This article presents a novel technique for dynamic analysis of Android applications written with the React Native framework, from a complete black-box perspective. It’s also a story of failure, as my original intention was to achieve full-blown debugging with breakpoints and live-editing in Chrome. Eventually I proved why this is not possible and settled half-way with just live-editing from any editor<br/><br/>"
 categories:
   - "blog-posts"
 tags:
@@ -16,23 +16,21 @@ tags:
 last_modified_at: 2021-12-28T13:48:00
 ---
 
-This article presents a novel technique for dynamic analysis of Android applications written with the React Native framework, from a complete black-box perspective. *It’s also a story of failure*, as my original intention was to achieve full-blown debugging with breakpoints and live-editing in Chrome. Eventually I proved why this is not possible and settled half-way with just live-editing from any editor
-
-<!--more-->
-
 {% include toc.html %}
 
 
 ## Rationale
 
-Now you might ask, Why? React Native allows developers to write their apps in JavaScript and the resulting code looks really different than native apps. Classic Reverse Engineering tools like decompilers are useless.  Changing the JS code and watching the results currently requires [repackaging](https://github.com/OWASP/owasp-mstg/blob/1.1.3/Document/0x05c-Reverse-Engineering-and-Tampering.md#repackaging) of the APK which is a very slow and tedious process. A [previous method](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2017/may/assethook-a-redirector-for-android-asset-files-using-old-dogs-and-modern-tricks/) was presented by NCCs Jeff Dileo in 2017, but still requires replacement of device files and some C code.  Conversely, the technique presented here radically streamlines live-editing of third-party code.
+> What is React Native and why should I care?
+
+React Native is a mobile development framework that allows mobile application developers to write their code in JavaScript (JS), and write it once. No need to know both Kotlin and Swift, as the same JS code base will compile to the appropriate "native" components for both Android and iOS platforms. The resulting React Native app looks really different than old-fashioned ones. Classic Reverse Engineering tools like decompilers are useless.  Changing the JS code and watching the results currently requires [repackaging](https://github.com/OWASP/owasp-mstg/blob/1.1.3/Document/0x05c-Reverse-Engineering-and-Tampering.md#repackaging) of the APK which is a very slow and tedious process. A [previous method](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2017/may/assethook-a-redirector-for-android-asset-files-using-old-dogs-and-modern-tricks/) was presented by NCCs Jeff Dileo in 2017, but still requires replacement of device files and some C code.  Conversely, the technique presented here radically streamlines live-editing of third-party code.
 
 
 ## React Native Primer
 
 Before describing the magic, we need to lay the groundwork with some React Native basics. Feel free to skip to  [The Technique](#the-technique) if already familiar,  or even jump straight to the [code](#tldr).
 
-Without going into much detail about RN itself, as any reverse engineering effort, we must first understand the engineering behind it, so here's some quick bits:
+Without going into much detail about React Native itself, as any reverse engineering effort, we must first understand the engineering behind it, so here's some quick bits:
 
 * To get a feel of the **developer workflow**, I'll list some boilerplate commands they would run:
 
@@ -86,14 +84,11 @@ Without going into much detail about RN itself, as any reverse engineering effor
      ```
 
      Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
-    Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
-     Both commands included a build step (gradle task) that packages all the JS code into a single file termed "bundle". This is then placed inside the APK at `/assets/index.android.bundle`. For release variants, the bundle is also minified and (optionally) stripped of log statements. 
+    
 
   6. To perform only this last step, or insert React Native functionality to existing apps, just create the bundle from the JS files & modules with
 
      ```bash
-     $ react-native bundle 
-    $ react-native bundle 
      $ react-native bundle 
      ```
 
@@ -126,8 +121,6 @@ Without going into much detail about RN itself, as any reverse engineering effor
      ```
 
      ...and you get: 
-    ...and you get: 
-     ...and you get: 
     
      <img src="/assets/img/rn-reactdevtools.png" />
     
@@ -140,8 +133,6 @@ Without going into much detail about RN itself, as any reverse engineering effor
      $ react-native-debugger
      ```
 
-     This looks like: 
-    This looks like: 
      This looks like: 
     
      <img src="/assets/img/rn-reactnativedebugger.png" />
