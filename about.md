@@ -2,6 +2,8 @@
 layout: page
 title: About Me
 sidebar_link: true
+post-img: /assets/img/bsides21.png
+excerpt: "Hi! My name is Leonidas and I'm an information security professional, with a passion for technical research"
 ---
 
 Hi! My name is Leonidas and I'm an information security professional, with a passion for technical research. 
