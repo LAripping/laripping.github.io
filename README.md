@@ -21,6 +21,18 @@
 
 * Check build status on [Actions](https://github.com/LAripping/laripping.github.io/actions/workflows/pages/pages-build-deployment)
 
+* Check how Shared links render in
+
+  * Twitter's [Card Validator](https://cards-dev.twitter.com/validator) 
+  * LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/)
+  * Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/)
+
+  for all types 
+
+  1. [Home](https://laripping.github.io/) 
+  2. A page such as [About Me](https://laripping.github.io/about.html) / Tags
+  3. An article such as [the OSEP one](https://laripping.github.io/blog-posts/2021/04/29/noobs-guide-to-osep.html)
+
 
 
 ## TODOs
@@ -30,7 +42,7 @@
 - [x] Fix Broken theme on narrow screens
 - [ ] Add Projects page, sidebar-linked
 - [x] Images on posts? Only on Index layout.
-  - [ ] Make them appear in social post preview (SEO)
+  - [x] Make them appear in social post preview (SEO)
 - [x] Excerpt provided in MD directive. The rest only visible on post.html -> to unlock TOCs 
   - [x] add Advisory tables (Product+Version - Severity - CVE - type)    
   - [x] Re-add Intro/Introduction sections
