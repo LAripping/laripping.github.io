@@ -3,16 +3,52 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+  {% comment %}
+  {%- capture title -%}
+    {%- if page.title == "Home" -%}
+      {{ site.title }}{% if site.tagline %} &middot; {{ site.tagline }}{% endif %}
+    {%- else -%}
+      {{ page.title }} &middot; {{ site.title }}
+    {%- endif -%}
+  {%- endcapture -%}
+
+  TODO what about the remaining pages? Maybe categorise by layout:
+  - index (Home)
+  - post (posts)
+  - category (advisories,blog-post)
+  - page (archive,about,404, )
+  {% endcomment %}
+  
+
+  {%- if page.title == "Home" -%}
+    {%- capture seotitle -%} {{ site.title }}{% if site.tagline %} &middot; {{ site.tagline }}{% endif %} {%- endcapture -%}
+    {%- capture seotype -%} website {%- endcapture -%}
+    {%- capture seoimage -%} {{ page.post-img | absolute_url }} {%- endcapture -%}
+    {%- capture seodesc -%} {%- endcapture -%}
+  {%- else -%}
+    {%- capture seotitle -%} {{ page.title }} &middot; {{ site.title }} {%- endcapture -%}
+    {%- capture seotype -%} article {%- endcapture -%}
+    {%- capture seoimage -%} {{ page.post-img | absolute_url }} {%- endcapture -%}
+    {%- capture seodesc -%} {{ page.excerpt }} {%- endcapture -%}
+  {%- endif -%}
+  
+
+  <!-- SEO -->
+  <meta property="og:title" name="title" content="{{ seotitle | escape }}" />
+  <meta property="og:type" content="{{ seotype }}">
+  {% if seoimage!="" %}
+  <meta property="og:image" name="image" content="{{ seoimage }}">
+  {% endif %}
+  {% if seodesc!="" %}
+  <meta property="og:description" name="description" content="{{ seodesc | escape }}">
+  {% endif %}
+
+
+
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }}{% if site.tagline %} &middot; {{ site.tagline }}{% endif %}
-    {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
+  <title>{{ seotitle }}</title>
 
   {% include google-analytics.html %}
 

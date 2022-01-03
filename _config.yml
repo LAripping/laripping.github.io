@@ -7,7 +7,7 @@ kramdown:
   parse_block_html: true
   auto_ids: true
 
-title:            Leo Tsaousis
+title:            'Leo Tsaousis'
 tagline:          'My blog'
 # this appears after a dot on the tab title 
 
