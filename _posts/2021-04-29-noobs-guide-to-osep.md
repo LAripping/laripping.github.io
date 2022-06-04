@@ -71,7 +71,7 @@ I scheduled my exam for a mid-week noon (12:00pm), put some holiday in to justif
 
 ## The Exam
 
-{% include warning.html content="The section below is heavily redacted. However, if you want to totally avoid any spoilers whatsoever, feel fee to skip this section. On the other side, it's very likely that this is what you're here for, so proceed at your own risk!" %}
+{% include warning.html title="Disclaimer:" content="The section below is heavily redacted. However, if you want to totally avoid any spoilers whatsoever, feel fee to skip this section. On the other side, it's very likely that this is what you're here for, so proceed at your own risk!" %}
 
 It all started off on the wrong foot. Despite joining 30 mins earlier than my scheduled start time, I didn't get through the procedural stuff untill 30 mins after that start time. Apparently my moving around Europe for jobs confused their system a bit and I had to show all sorts of documents on the camera or the screen. Props to the proctors though, for their patience, flexibility and co-operation. They didn't give me a hard time e.g. by asking for paper documents. 
 
