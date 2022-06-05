@@ -26,7 +26,7 @@ Recently, I've had the chance to present my findings at a couple of security con
 
 <!-- My interests include reverse engineering, mobile security, heavy metal and [good movies](https://github.com/LAripping/watchlist-widget)*. -->
 <!-- TODO: Link the project page here instead of the GH repo -->
-My interests include reverse engineering, mobile security and occasionally I try my hand at coding, which has resulted to some notable [projects](TODO).
+My interests include reverse engineering, mobile security and occasionally I try my hand at coding, which has resulted to some notable [projects](https://github.com/laripping).
 
 <p style="margin-bottom: 0"> With regards to movies, music and books (aka content to try and phish me with) you can find my lists below: </p>
 <table class="mmb-table">
