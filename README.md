@@ -17,6 +17,8 @@
 
   ```bash
   $ bundle exec jekyll serve --livereload
+  # after specifying new plugin in Gemfile
+  $ bundle install
   ```
 
 * Check build status on [Actions](https://github.com/LAripping/laripping.github.io/actions/workflows/pages/pages-build-deployment)

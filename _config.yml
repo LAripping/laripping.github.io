@@ -30,6 +30,7 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
   - jemoji
+  - jekyll-twitter-plugin
 
 sidebar_home_link:  false
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog
