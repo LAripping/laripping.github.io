@@ -14,7 +14,7 @@ last_modified_at: 2021-12-22T15:35:00
 post-img: assets/img/xiaomi-logo.jpeg
 ---
 
-{% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/xiaomi-second-space/)" %}
+{% include note.html title="Note:" content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/xiaomi-second-space/)" %}
 
 | **Product** | Xiaomi Redmi 5 Plus |
 | **Severity** |<span style="color:orange">Medium</span> |

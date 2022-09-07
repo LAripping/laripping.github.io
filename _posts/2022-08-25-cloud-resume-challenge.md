@@ -23,9 +23,12 @@ post-img: assets/img/high-level-design-expanded.png
 I strongly believe that to learn is to do. Having the longing itch to cover my deficiency in cloud security and cloud in general, I had a big A-Ha moment when I read about [the Cloud Resume Challenge](https://cloudresumechallenge.dev/) in Nick Jones' awesome "Breaking Into Cloud" checklist.
 
 
-<!-- {% twitter https://twitter.com/nojonesuk/status/1531336352972824580 %} -->
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">How to get into cloud security based on my own experiences, and on mentoring and hiring over the last few years. I&#39;ve focused on how to make yourself a success in the field, rather than just the technical knowledge required: <a href="https://t.co/oEhrYHCVda">https://t.co/oEhrYHCVda</a></p>&mdash; Nick Jones (@nojonesuk) <a href="https://twitter.com/nojonesuk/status/1531336352972824580?ref_src=twsrc%5Etfw">May 30, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">How to get into cloud security based on my own experiences, and on mentoring and hiring over the last few years. I&#39;ve focused on how to make yourself a success in the field, rather than just the technical knowledge required: <a href="https://t.co/oEhrYHCVda">https://t.co/oEhrYHCVda</a>
+  </p>
+  &mdash; Nick Jones (@nojonesuk) <a href="https://twitter.com/nojonesuk/status/1531336352972824580?ref_src=twsrc%5Etfw">May 30, 2022</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Essentially, the Cloud Resume Challenge is to create a simple web application, but fully cloud-native and using modern DevOps practices. The app will be a statically hosted website showing your Resumé (or just Resume from here onwards, might also use the term CV interchangeably) and will include some backend functionality in the form of a visitor counter. All of this will be created through 16 well-defined tasks. Who doesn't love checklists?   
 
@@ -60,17 +63,10 @@ It's interesting to note that the challenge steps were laid out in such an order
 
 So I embarked on the journey, which lasted around 3 months, ended up using around 50 AWS resources in total, and it all cost me around a penny, as the usage per AWS service utilised was well within the [AWS Free Tier](https://aws.amazon.com/free/) ranges. The only real fee that's expected is for a domain name, but I chose to host it under as subdomain of a domain name I already had.   
 
-![](/assets/img/cost.png)  
+![](/assets/img/cost.png)
+*&pound;0 cost for the 3 months of experimentation confirmed through the AWS Cost Explorer service*
 
-> 0gbp cost for the 3 months of experimentation confirmed through the AWS Cost Explorer service
-
-
-
-> <u>Callout</u>
->
-> To track the resource count I started tagging everything I would create through the console with `Project: cloud-resume`. Initially I thought this way it would be easy to tear them all down at once in the end, by listing all such tagged resources through the  [Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html)  service. Down the road, however, I grew fairly proud of the app and decided to keep it all up there. 
->
-> This tagging approach turned out to be rather naive though as later on, when things were being created automatically, any tags could only be applied to the resource container i.e. the "Stack"...
+{% include note.html title='' content='*To track the resource count I started tagging everything I would create through the console with `Project: cloud-resume`. Initially I thought this way it would be easy to tear them all down at once in the end, by listing all such tagged resources through the  [Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html)  service. Down the road, however, I grew fairly proud of the app and decided to keep it all up there.<br/><br/>This tagging approach turned out to be rather naive though as later on, when things were being created automatically, any tags could only be applied to the resource container i.e. the "Stack"...' %}
 
 
 
@@ -79,7 +75,6 @@ Another fun fact is that throughout the entire journey, with all the googling in
 Looking at the whole picture, it's important to make a special note to the **security** aspect, or "Priority Zero" as Amazonians refer to it. As a security practitioner I had this extra concern throughout the journey as this was a rare occasion where I was building something from the ground up, something that would sit "in production", out there for the world to see. The [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) is there to remind any cloud-builder that some of the risk is now assigned directly to you, not the hosting provider, and that the fancy pay-for-what-you-use pricing model can also be turned against you in the case of malicious use - should you omit to address this.
 
 ![](https://pbs.twimg.com/media/FYPaHC-WQAIwfDE?format=jpg&name=900x900)
-
 
 
 As such, I wanted to summarise some thoughts about the Security of the end product, as some sort of basic security model, to make note of the related AWS services coming into play whether visibly or behind the scenes:
@@ -125,12 +120,7 @@ When it comes to the steps covering the Infrastructure (Steps 5 and 6), things g
 
 Nevertheless, it all fit into place and I had a pretty solid topology looking like this:
 
-```mermaid
-graph LR
-	b(["browser #128435;"])--->NC["NameCheap #128214;"]
-	NC-.->CF["CloudFront #128317;"] 
-	CF-.->S3["S3 #129699;"] 
-```
+![](/assets/img/mermaid-frontend.png)
 
 
 
@@ -141,31 +131,20 @@ It's the age of Let's Encrypt and HTTPS certs are generated with 2 clicks, so ho
 When this moment finally came, the relevant service - Amazon Certificate Manager (ACM) offered validation via Email or DNS. While the Email way was fairly striaghtforward, expected and traditional, the DNS way performed [via specially configured CNAME records](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) absolutely blew my mind as a genius idea for the problem! After some trial and error (and annoying waits for global DNS infra to catch-up) I had my shinny new cert:
 
 ![](/assets/img/cert.png)
-
-> caption: "It even has a watermark" 
->
-> -Patrick Bateman, American Psycho (2000)
+*"It even has a watermark"<br/>— Patrick Bateman, American Psycho (2000)*
 
 
 
 ### The Backend - Lambda / DynamoDB / API gateway
 
-
-```mermaid
-graph LR
-	b(["browser #128435;"])-->JS
-	JS["JS (Fetch)"]--->API
-    API-->λ["Lambda(Python)"]
-	λ-->DB["DynamoDB (NoSQL)"]
-```
+![](/assets/img/mermaid-api.png)
 
 Here things made much more sense as the topology proposed by the challenge for the application's backend (steps 8,9 and 10) was actually fairly common, if not recommended even. As the Lambda-DyamoDB-API Gateway combo is simple, scalable and serverless!  
 
 
 
 ![](/assets/img/aws-flow.png)
-
->  Caption: It's right there on the Lambda Service "Getting Started" page
+*It's right there on the Lambda Service "Getting Started" page*
 
 
 
@@ -181,8 +160,7 @@ Finally, I designed the simple 1-endpoint API as "the contract" that both the ba
 
 
 ![](https://github.com/LAripping/cloud-resume-backend/raw/f442e6341d7a8d87934d585868f2c2502af0ea32/apispec-expand.png)
-
-> Caption: Explore the API specification [here](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/LAripping/cloud-resume-backend/master/apispec.yml)
+*Explore the API specification [here](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/LAripping/cloud-resume-backend/master/apispec.yml)*
 
 
 
@@ -195,9 +173,7 @@ Finally, I designed the simple 1-endpoint API as "the contract" that both the ba
 
 Having manually written a prototype for both the frontend and backend, the challenge for these steps (11,12,13 and 14) was to re-write it all make this whole process automatic, speeding deployments and enabling rapid experimentation. For this, the challenge suggested I use SAM, or Serverlesss Application Model, and the corresponding CLI. I learned that SAM is a concept allowing for serverless cloud infrastructure to be described in a YAML format, like code (which is well-defined, can be versioned, yada yada). More importantly though, it's supposed to simplify operations against this codebase via simple commands like `sam init && sam deploy ` through a wrapper SAM CLI. 
 
-> callout:
->
-> My understanding is that the SAM CLI is a wrapper over Amazon's IaC offering - "CloudFormation", which wasn't really dev-friendly or otherwise easy for the user (or scripts) when accessed through the traditional AWS CLI.    
+{% include note.html title="Note:" content="My understanding is that the SAM CLI is a wrapper over Amazon's IaC offering - &quot;CloudFormation&quot;, which wasn't really dev-friendly or otherwise easy for the user (or scripts) when accessed through the traditional AWS CLI" %}
 
 The road here presented a fork, where the challenge taker would have to
 
@@ -225,14 +201,9 @@ Some testing practices I studied and am proud to [have applied](https://github.c
 * effective use of Mocks to distinguish between code-under-test and dependencies
 
 
-
 Here's a screenshot of my complete test suite
 
 ![](https://raw.githubusercontent.com/LAripping/cloud-resume-backend/f442e6341d7a8d87934d585868f2c2502af0ea32/tests-organisation.png)
-
-
-
-
 
 
 

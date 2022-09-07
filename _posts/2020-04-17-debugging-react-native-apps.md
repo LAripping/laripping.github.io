@@ -258,7 +258,7 @@ Refused to execute script from 'http://localhost:8081/index.bundle?platform=andr
 
 Ok, let's rename it to `index.js` then... And it works!
 
-{% include tip.html content="So if you encounter this error, keep in mind that the packager looks for one of the following files to serve:<br/>
+{% include tip.html title="Tip:" content="So if you encounter this error, keep in mind that the packager looks for one of the following files to serve:<br/>
 - `index(.native|.android.js|.native.js|.js| .android.json|.native.json|.json|.android.ts|.native.ts |.ts|.android.tsx|.native.tsx|.tsx)`<br/>
 - `index/index(.native|.android.js|.native.js| .js|.android.json|.native.json|.json|.android.ts|.native.ts |.ts|.android.tsx|.native.tsx|.tsx)`" %}
 

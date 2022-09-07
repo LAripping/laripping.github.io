@@ -13,7 +13,7 @@ last_modified_at: 2021-12-24T14:44:00
 post-img: assets/img/cisco-xpand.jpeg
 ---
 
-{% include note.html content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/cisco-imc-server-multiple-vulnerabilities/)" %}
+{% include note.html title="Note:" content="This advisory was originally published on [F-Secure LABS](https://labs.f-secure.com/advisories/cisco-imc-server-multiple-vulnerabilities/)" %}
 
 | **Product** | Cisco IMC Server 4.0(4h) |
 | **Severity** |<span style="color:orange">Medium</span> |

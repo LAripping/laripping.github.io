@@ -42,7 +42,7 @@ After you sign up you'll receive a welcome pack including:
 
 While some say it's best to interleave reading the PDF / watching the videos and trying the challenges as you go or when bored,  I personally prefer to keep theoretic and practical activities separate. This helped me track my overall progress and manage my excitement for what I would be working on at a given date. Hence, I started with the PDF, doing (almost) all the exercises after each module -especially the Extra Mile ones- and then switching over to labs once finished. The PDF was never closed though, even in the exam. So it can be considered as a good source for reference in the off chance you don't keep any notes in general. Also,
 
-{% include tip.html content="Don't be intimidated by the sheer size of the PDF. Although it covers lots of things, the main reason it's too big is because of the gradual buildup of the final exploit for each module, going though each defence progressively, augmenting the final payload step-by-step, instead of handing it out for you to use. Beyond all these code blocks It's also full of images and references which are also very helpful but add up to the final page count. " %}
+{% include tip.html title="Tip:" content="Don't be intimidated by the sheer size of the PDF. Although it covers lots of things, the main reason it's too big is because of the gradual buildup of the final exploit for each module, going though each defence progressively, augmenting the final payload step-by-step, instead of handing it out for you to use. Beyond all these code blocks It's also full of images and references which are also very helpful but add up to the final page count. " %}
 
 
 With regards to the age old question: *But I don't know programming, is C# knowledge a requirement?* 
@@ -55,7 +55,7 @@ I also expected a bit more detail in the promising Kiosk Breakouts section which
 
 A tip for time-management? Easy:
 
-{% include tip.html content="No need to tactically break up with your significant other every Friday, just let them know beforehand that you'll be MIA on all evenings for the next 2 or 3 months risking the consequences. " %} 
+{% include tip.html title="Tip:" content="No need to tactically break up with your significant other every Friday, just let them know beforehand that you'll be MIA on all evenings for the next 2 or 3 months risking the consequences. " %} 
 
   <img src="https://i.kym-cdn.com/entries/icons/original/000/022/138/highresrollsafe.jpg"   />
 
@@ -79,7 +79,7 @@ Then it got even worse. I figured out what the attack vectors were very early on
 
 This wasn't even the first time this had happened throughout my 90 day engagement with all things OSEP, as another [very nifty tool](https://github.com/calebstewart/bypass-clm) I initially used in one challenge lab ended up being picked up soon afterwards... So here's one solid piece of advice you should already know:
 
-{% include tip.html content="Please, please don't upload your payloads to Virustotal. And don't test them in an internet-connected machine either! If necessary, take the hard (and rewarding) way: Spawn a test VM with no internet access, install all/most prestigious AVs and test there instead. I didn't. But my technical debt *will* haunt me as (hopefully) one day I'll go through the same process for some job." %}
+{% include tip.html title="Tip:" content="Please, please don't upload your payloads to Virustotal. And don't test them in an internet-connected machine either! If necessary, take the hard (and rewarding) way: Spawn a test VM with no internet access, install all/most prestigious AVs and test there instead. I didn't. But my technical debt *will* haunt me as (hopefully) one day I'll go through the same process for some job." %}
 
 Anyway, back to our story. I tried lots of things to bypass it, including taking the alternative route for initial access. Oh yeah, by the way, the exam includes "multiple" distinct paths to get initial access and presumably different paths through the network from there (fun fact: One of them in my exam looked a lot like a rabbit hole). Deep down on my list was also a means of payload "obfuscation" we're taught in the course. But it was so low because: 
 
@@ -93,13 +93,13 @@ So the time is passing and I get more and more frustrated as it went, terrified 
 
 So a first implicit piece of advice everyone gives which is worth re-iterating:
 
-{% include tip.html content="Revert often. You're given plenty of reverts for 48 hours, and some delivery methods specifically want a clean slate to work. So it never hurts waiting a bit more before hitting the Go button, just to save your future self from hours of debugging." %} 
+{% include tip.html title="Tip:" content="Revert often. You're given plenty of reverts for 48 hours, and some delivery methods specifically want a clean slate to work. So it never hurts waiting a bit more before hitting the Go button, just to save your future self from hours of debugging." %} 
 
 Fun fact, I finished the exam with only just one more revert. Two in total.
 
 However, a more important tip here is to just: 
 
-{% include tip.html content="Trust the process. Do what the course teaches you to, patiently go through all the bypasses you've learned, be methodical and persistent, and the test lab will reward you." %}
+{% include tip.html title="Tip:" content="Trust the process. Do what the course teaches you to, patiently go through all the bypasses you've learned, be methodical and persistent, and the test lab will reward you." %}
 
 With that out of the way, and after 3 hours of sleep to freshen things up, I set out to tackle the actual lab.
 
@@ -115,7 +115,7 @@ Actually, looking back now, a decent part of the exam (and challenges) would jus
 
 There are always ways to automate this so don't be like me:
 
-{% include tip.html content="Set up [crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) if you haven't, and familiarise yourself with it. I knew of it before but never actually sat down to properly use it until the end of the test. It will come in handy when you'll have lots and lots of credentials and several machines / ports to test them against." %}
+{% include tip.html title="Tip:" content="Set up [crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) if you haven't, and familiarise yourself with it. I knew of it before but never actually sat down to properly use it until the end of the test. It will come in handy when you'll have lots and lots of credentials and several machines / ports to test them against." %}
 
 
 Anything after that was pretty straightforward, exactly or almost exactly like in the challenges, especially the 3 final ones which kinda merge together several techniques in a progressively more realistic network, so make sure to go through them and pop all the boxes in each before taking the exam. I didn't even realise I got into the final machine as described in the Exam objective before I found `secret.txt`. 

@@ -17,7 +17,7 @@ last_modified_at: 2021-12-24T15:13:00
 post-img: assets/img/diagram-transparent-blackfont.png
 ---
 
-{% include note.html content="This blog post was originally published on [F-Secure LABS](https://labs.f-secure.com/blog/wind-vision-writeup/)" %}
+{% include note.html title="Note:" content="This blog post was originally published on [F-Secure LABS](https://labs.f-secure.com/blog/wind-vision-writeup/)" %}
 
 {% include toc.html %}
 
@@ -317,7 +317,7 @@ Exchanging device-level authentication credentials presents a dangerous practice
 
 <!-- > *Local authentication credentials should be generated, stored and checked locally.* -->
 
-{% include tip.html content="*Local authentication credentials should be generated, stored and checked locally*" %}
+{% include tip.html title="Tip:" content="*Local authentication credentials should be generated, stored and checked locally*" %}
  
 
 Back to the Wind Vision implementation though, at first thought sending it over HTTP might appear unimportant and of minimal risk as a design approach - considering that interception of authenticated traffic could only be performed by the legitimate user itself.
