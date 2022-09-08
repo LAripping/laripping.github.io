@@ -245,3 +245,10 @@ input[type='submit'] {
   text-align: right;
   margin-bottom: 0;
 }
+
+
+img + em { 
+  text-align: center;
+  display: block;
+  margin-bottom: 1em;
+}

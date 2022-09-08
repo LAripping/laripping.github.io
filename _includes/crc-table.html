@@ -1,0 +1,31 @@
+<table style="text-align:center;">
+    <thead>
+        <tr>
+            <th style="text-align:center;">Threat</th>
+            <th style="text-align:center;">Mitigation</th>
+            <th style="text-align:center;">Responsibility</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Distributed Denial of Service (DDoS) Attack</td>
+            <td style="text-align:left;">&bull; AWS Shield Standard enabled <strong>by default</strong> <br/>on the CloudFront distribution</td>
+            <td><span style="color:darkorange">AWS</span></td>
+        </tr>
+        <tr>
+            <td >API Abuse Resulting in Usage Costs</td>
+            <td style="text-align:left;">&bull; Configured Lambda Concurrency Control<br/>&bull; Configured DB capacity units<br/>&bull; Set up AWS Budgets to be alerted on unexpected costs</td>
+            <td><span style="color:blue">Mine</span></td>
+        </tr>
+        <tr>
+            <td >Supply-chain Attack</td>
+            <td style="text-align:left;">&bull; Sub-Resource Integrity (SRI) enabled on 3rd party JS libraries</td>
+            <td><span style="color:blue">Mine</span></td>
+        </tr>
+        <tr>
+            <td >Leaked IAM Credentials</td>
+            <td style="text-align:left;">&bull; Followed &quot;Principle of Least Privilege&quot; <br/>&bull; Used different users/roles for different functions</td>
+            <td><span style="color:blue">Mine</span></td>
+        </tr>
+    </tbody>
+</table>
