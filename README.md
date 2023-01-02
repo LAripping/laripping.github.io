@@ -16,6 +16,9 @@
 * Run locally with
 
   ```bash
+  $ rbenv install 3.1.2 # this version prevents errors from some gems
+  $ rbenv global 3.1.2
+  
   $ bundle exec jekyll serve --livereload
   # after specifying new plugin in Gemfile
   $ bundle install
