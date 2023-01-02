@@ -269,6 +269,6 @@ From the available state backends, I chose the most common, the S3 bucket backen
 
 Terraform is a truly awesome technology with [endless use-cases](https://github.com/shuaibiyy/awesome-terraform), surprisingly stable and resilient and really easy to use. All while staying vendor-agnostic and thus superior to vendor-specific solutions like the SAM CLI, enabling organisations to manage multi-cloud environments unconditionally. One would assume these are the reasons why it is widely adopted by the community and heavily extended through numerous providers. 
 
-Once again, the Cloud Resume series of challenges provided a great way to learn-by-doing. Special thanks to [Roseary Wang](https://github.com/joatmon08)and [Kerim Satirli](https://github.com/ksatirli) for contributing the terraform extension and making terraform more accessible to people preferring a practical way to familiarise themselves, over a daunting thousand-page documentation site. 
+Once again, the Cloud Resume series of challenges provided a great way to learn-by-doing. Special thanks to [Roseary Wang](https://github.com/joatmon08) and [Kerim Satirli](https://github.com/ksatirli) for contributing the terraform extension and making terraform more accessible to people preferring a practical way to familiarise themselves, over a daunting thousand-page documentation site. 
 
 Thanks for reading! 
