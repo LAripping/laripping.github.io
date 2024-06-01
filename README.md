@@ -18,10 +18,9 @@
   ```bash
   $ rbenv install 3.1.2 # this version prevents errors from some gems
   $ rbenv global 3.1.2
-  
+  $ bundle install
   $ bundle exec jekyll serve --livereload
   # after specifying new plugin in Gemfile
-  $ bundle install
   ```
 
 * Check build status on [Actions](https://github.com/LAripping/laripping.github.io/actions/workflows/pages/pages-build-deployment)
