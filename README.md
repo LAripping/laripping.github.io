@@ -27,7 +27,7 @@
 
 * Check how Shared links render in
 
-  * Twitter's [Card Validator](https://cards-dev.twitter.com/validator) 
+  * Twitter's Composer Box
   * LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/)
   * Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/)
 
