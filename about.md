@@ -12,7 +12,7 @@ On this website you will find all my [published work](/category/blog-posts.html)
 
 Throughout my career I have discovered several [vulnerabilities](/category/cve-advisory.html) on software from companies like IBM, Cisco, Xiaomi and [Wind Hellas]({% post_url 2021-03-30-wind-vision-writeup %}), details of which you can also find in this space.
 
-Despite consulting full-time, I enjoy a bit of research every now and then, which I've been given the opportunity to present at security conferences around the world. You can find the links for all my conference talks here: [Talks and Workshops](/talks.htsml).
+Despite consulting full-time, I enjoy a bit of research every now and then, which I've been given the opportunity to present at security conferences around the world. You can find the links for all my conference talks here: [Talks and Workshops](/talks.html).
 
 <table class="mmb-table">
     <tr>

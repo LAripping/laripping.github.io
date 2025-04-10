@@ -2,7 +2,7 @@
 layout: page
 title: Talks & Workshops
 sidebar_link: true
-post-img: /assets/img/brefing.jpeg
+post-img: /assets/img/briefing.jpeg
 excerpt: "All my conference talks"
 ---
 
