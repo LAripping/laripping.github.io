@@ -12,6 +12,8 @@ On this website you will find all my [published work](/category/blog-posts.html)
 
 Throughout my career I have discovered several [vulnerabilities](/category/cve-advisory.html) on software from companies like IBM, Cisco, Xiaomi and [Wind Hellas]({% post_url 2021-03-30-wind-vision-writeup %}), details of which you can also find in this space.
 
+Despite consulting full-time, I enjoy a bit of research every now and then, which I've been given the opportunity to present at security conferences around the world. You can find the links for all my conference talks here: [Talks and Workshops](/talks.htsml).
+
 <table class="mmb-table">
     <tr>
         <td style="border:none; background-color:inherit; width:56%">
@@ -23,86 +25,7 @@ Throughout my career I have discovered several [vulnerabilities](/category/cve-a
     </tr>
 </table>  
 
-Despite consulting full-time, I enjoy a bit of research every now and then, which I've been given the opportunity to present at security conferences around the world: 
-
-<table class="mmb-table">
-    <tr>
-        <td style="width:33%">
-            :netherlands: DEATHCon 2024
-        </td>
-        <td style="width:62%">
-            Building and Validating Kubernetes Detection Capability with Leonidas
-        </td>
-        <td style="width:5%">
-            <a href="https://www.youtube.com/watch?v=LQ4GVCHrMGY">Video</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            :uk: WithSecure Briefing 2024
-        </td>
-        <td>
-            Kubernetes Attack Simulation: The Definitive Guide
-        </td>
-        <td>
-            <a href="https://www.youtube.com/watch?v=_2W_7ezirmM">Video</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            :us: DEF CON 32<br\>Adversary Village
-        </td>
-        <td>
-            Kubernetes Attack Simulation: The Definitive Guide
-        </td>
-        <td>
-            <a href="https://www.youtube.com/watch?v=PFeqxSD7Gh8">Video</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            :globe_with_meridians: Rootcon 15
-        </td>
-        <td>
-            Click Here For Free TV: Chaining Bugs to Takeover Wind Vision Accounts
-        </td>
-        <td>
-            <a href="https://www.youtube.com/watch?v=xB-u0nyttMQ">Video</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            :greece: BSides Athens 2022
-        </td>
-        <td>
-            Baby, Don't Forget My Number: OSINT using your phone's address book
-        </td>
-        <td>
-            <a href="https://www.youtube.com/watch?v=Y8buLspJNKQ">Video</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            :greece: BSides Athens 2021
-        </td>
-        <td>
-            Click Here For Free TV: Chaining Bugs to Takeover Wind Vision Accounts
-        </td>
-        <td>
-            <a href="https://www.youtube.com/watch?v=XufcVqaQFus">Video</a>
-        </td>
-    </tr>
-</table> 
-
-<!-- 
-* :netherlands: DEATHCon 2024 -  &middot; [Video](https://www.youtube.com/watch?v=LQ4GVCHrMGY)
-* :uk: WithSecure Briefing 2024 - Kubernetes Attack Simulation: The Definitive Guide &middot; [Video](https://www.youtube.com/watch?v=_2W_7ezirmM)
-* :us: DEF CON 32: Adversary Village - Kubernetes Attack Simulation: The Definitive Guide &middot; [Video](https://www.youtube.com/watch?v=PFeqxSD7Gh8)
-* :globe_with_meridians: Rootcon 15 - Click Here For Free TV: Chaining Bugs to Takeover Wind Vision Accounts &middot; [Video](https://www.youtube.com/watch?v=xB-u0nyttMQ)
-* :greece: BSides Athens 2022 - Baby, Don't Forget My Number: OSINT using your phone's address book &middot; [Video](https://www.youtube.com/watch?v=Y8buLspJNKQ)
-* :greece: BSides Athens 2021 - Click Here For Free TV: Chaining Bugs to Takeover Wind Vision Accounts &middot; [Video](https://www.youtube.com/watch?v=XufcVqaQFus) -->
-
-My interests include attack detection, adversary simulation, reverse engineering, and in the past mobile security. Occasionally I try my hand at coding, which has resulted to some notable [projects](https://github.com/laripping).
+My interests include adversary simulation, attack detection, reverse engineering, and in the past mobile security. Occasionally I try my hand at coding, which has resulted to some notable [projects](https://github.com/laripping).
 
 <p style="margin-bottom: 0"> With regards to movies, music and books (aka content to try and phish me with) you can find my lists below: </p>
 <table class="mmb-table">
@@ -130,5 +53,5 @@ My interests include attack detection, adversary simulation, reverse engineering
 If you've liked the stuff in here, spotted a mistake (noone's perfect, [not even the mighty Stig](https://www.youtube.com/watch?v=aahUbS0Hpio)), or just feel like talking about the Premier League, feel free to ping me on socials! 
 
 Happy Browsing! 
-
+s
 <br/><br/><br/><br/>
