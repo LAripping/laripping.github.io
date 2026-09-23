@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "High-Profile Cloud Privesc"
-excerpt: "Revisiting PowerShell Profile Tricks in Entra Environments"
+excerpt: "Revisiting PowerShell Profile Tricks in Entra Environments<br/><br/>"
 categories:
   - "blog-posts"
 tags:
@@ -186,10 +186,17 @@ Speaking of graphs, this article wouldn't be complete without an attack path dia
 
 ![](/assets/img/high-profile-simple-clipped.png)
 
-## References
 
-- [Dirk-jan Mollema: Digging further into the Primary Refresh Token](https://dirkjanm.io/digging-further-into-the-primary-refresh-token/)
-- [Dirk-jan Mollema: Abusing Azure AD SSO with the Primary Refresh Token](https://dirkjanm.io/abusing-azure-ad-sso-with-the-primary-refresh-token/)
-- [Matt Creel: An operator's guide to device-joined hosts and the PRT cookie](https://posts.specterops.io/an-operators-guide-to-device-joined-hosts-and-the-prt-cookie-bcd0db2812c4)
-- [AAD PRT BOF](https://github.com/wotwot563/aad_prt_bof)
-- [TrustedSec get_azure_token BOF](https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main/src/Remote/get_azure_token)
+## References
+Shout-outs to: 
+- Dirk-jan Mollema (@dirkjan) for his work on Primary Refresh Tokens:
+	- https://dirkjanm.io/digging-further-into-the-primary-refresh-token/
+	- https://dirkjanm.io/abusing-azure-ad-sso-with-the-primary-refresh-token/
+- Lee Chagolla-Christensen (@tifkin_) for his original analysis of the PRT cookie acquisition:
+	- https://posts.specterops.io/requesting-azure-ad-request-tokens-on-azure-ad-joined-machines-for-browser-sso-2b0409caad30
+- Matt Creel (@Tw1sm) for his 2025 summary of the above, including operational guidance: 
+  - https://posts.specterops.io/an-operators-guide-to-device-joined-hosts-and-the-prt-cookie-bcd0db2812c4
+- @wotwot563 and Christopher Paschen (@freefirex2) for their BOFs, that gave us the W in that job:
+  - https://github.com/wotwot563/aad_prt_bof
+  - https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main/src/Remote/get_azure_token
+

@@ -10,7 +10,6 @@
 ## Project layout
 
 - `_posts/` — dated blog posts in Markdown with YAML front matter.
-
 - `_layouts/` and `_includes/` — Liquid templates and reusable partials.
 - `_sass/` and `assets/` — Sass source and static site assets.
 - `_config.yml` — Jekyll site configuration and enabled plugins.
