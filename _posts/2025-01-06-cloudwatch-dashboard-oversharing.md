@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "CloudWatch Dashboard (Over)Sharing"
-excerpt: "A security vulnerability in AWS CloudWatch dashboard sharing allowed unauthorized viewers to access EC2 tags.<br/><br/>"
+excerpt: "A security vulnerability in AWS CloudWatch dashboard sharing allowed unauthorized viewers to access EC2 tags.<br/>"
 categories:
   - "blog-posts"
+  - "cve-advisory"
 tags:
   - aws
   - cloudwatch
