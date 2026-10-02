@@ -3,16 +3,20 @@ layout: page
 title: About Me
 sidebar_link: true
 post-img: /assets/img/bsides21.png
-excerpt: "Hi! My name is Leonidas and I'm an information security professional, with a passion for technical research"
+excerpt: "Hi! My name is Leonidas and I'm an offensive security practitioner, with a passion for technical research"
 ---
 
-Hi! My name is Leonidas and I'm a senior security consultant at WithSecure, where I currently head the Attack Path Mapping service. A complete CV is available [here](https://resume.laripping.com).
+Hello world.
+
+My name is Leonidas and I'm an ofensive security practitioner with over a decade of hands-on, technical experience. 
+
+Based in London, UK for the last few years I'm focusing on planning and leading large-scale attack simulations across the full spectrum: from purple teams and Attack Path Mapping to red team exercises.
 
 On this website you will find all my [published work](/category/blog-posts.html), articles previously released in other corners of the internet, as well as a few posts first released here. 
 
-Throughout my career I have discovered several [vulnerabilities](/category/cve-advisory.html) on software from companies like IBM, Cisco, Xiaomi and [Wind Hellas]({% post_url 2021-03-30-wind-vision-writeup %}), details of which you can also find in this space.
+Occasionally, I get to discover [vulnerabilities](/category/cve-advisory.html) on software from companies like IBM, Cisco, Xiaomi and even [AWS]({% post_url 2025-01-06-cloudwatch-dashboard-oversharing %}), details of which you can also find in this space.
 
-Despite consulting full-time, I enjoy a bit of research every now and then, which I've been given the opportunity to present at security conferences around the world. You can find the links for all my conference talks here: [Talks and Workshops](/talks.html).
+Despite consulting full-time, I enjoy a bit of research every now and then, which has given me the opportunity to present at security conferences around the world. You can find the links for all my conference talks here: [Talks and Workshops](/talks.html).
 
 <table class="mmb-table">
     <tr>
@@ -27,31 +31,8 @@ Despite consulting full-time, I enjoy a bit of research every now and then, whic
 
 My interests include adversary simulation, attack detection, reverse engineering, and in the past mobile security. Occasionally I try my hand at coding, which has resulted to some notable [projects](https://github.com/laripping).
 
-<p style="margin-bottom: 0"> With regards to movies, music and books (aka content to try and phish me with) you can find my lists below: </p>
-<table class="mmb-table">
-    <tr>
-        <td class="mmb-icon" style="background-color:inherit">
-            <a class="mmb" href="https://www.imdb.com/list/ls075069559/">
-                {% include svg/imdb.svg %}
-            </a>
-        </td>
-        <td class="mmb-slash" style="background-color: inherit;">/</td>
-        <td class="mmb-icon" style="background-color:inherit">
-            <a class="mmb" href="https://open.spotify.com/user/tsaousaras">
-                {% include svg/spotify_sq.svg %}
-            </a>
-        </td>
-        <td class="mmb-slash" style="background-color: inherit;">/</td>
-        <td class="mmb-icon" style="background-color:inherit">
-            <a class="mmb" href="https://www.goodreads.com/user/show/109303293-leonidas">
-                {% include svg/goodreads.svg %}
-            </a>
-        </td>
-    </tr>
-</table>  
 
-If you've liked the stuff in here, spotted a mistake (noone's perfect, [not even the mighty Stig](https://www.youtube.com/watch?v=aahUbS0Hpio)), or just feel like talking about the Premier League, feel free to ping me on socials! 
+If you've liked the stuff in here, spotted a mistake or just feel like talking about the Premier League, feel free to contact me on socials. 
 
-Happy Browsing! 
-s
+Happy Browsing 
 <br/><br/><br/><br/>

@@ -28,8 +28,8 @@ $ docker volume create laripping-node-modules
 2. Then build and serve
 
 ```
-$ docker run -it -v "$PWD:/work" -v laripping-bundle:/user/local/bundle -p 4000:4000  -w /work ruby:3.1.4-bookworm bash
-$ docker run -it -v "$PWD:/work" -v laripping-bundle:/user/local/bundle -w /work ruby:3.1.4-bookworm bash -lc 'bundl
+$ docker run -it -v "$PWD:/work" -v laripping-bundle:/user/local/bundle -p 4000:4000 -w /work ruby:3.1.4-bookworm bash
+$ docker run -it -v "$PWD:/work" -v laripping-bundle:/user/local/bundle -p 4000:4000 -w /work ruby:3.1.4-bookworm bash -lc 'bundl
 e config set path /user/local/bundle && bundle install && bundle exec jekyll build && bundle exec jekyll serve --livereload --host 0.0.0.0'
 ```
 
