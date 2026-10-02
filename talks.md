@@ -11,6 +11,28 @@ The table below list all the conference talks and workshops I have delivered, al
 
 <table class="mmb-table">
     <tr>
+        <td>
+            :us: DEF CON 33<br\>Cloud Village
+        </td>
+        <td>
+            Cognito, Ergo, Some Extra Permissions
+        </td>
+        <td>
+            <a href="https://www.youtube.com/watch?v=v4Zj7Qbkfy8">Video</a>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:33%">
+            :greece: OffensiveX 2025
+        </td>
+        <td style="width:62%">
+            There and Back Again: An Attacker's Tale of DCs in AWS
+        </td>
+        <td style="width:5%">
+            N/A
+        </td>
+    </tr>
+    <tr>
         <td style="width:33%">
             :us: SO-CON 2025
         </td>
@@ -18,7 +40,7 @@ The table below list all the conference talks and workshops I have delivered, al
             There and Back Again: An Attacker's Tale of DCs in AWS
         </td>
         <td style="width:5%">
-            Video Coming Soon!
+            <a href="https://www.youtube.com/watch?v=4Z1Aty107Jw">Video</a>
         </td>
     </tr>
     <tr>
