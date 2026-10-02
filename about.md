@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About
 sidebar_link: true
 post-img: /assets/img/bsides21.png
 excerpt: "Hi! My name is Leonidas and I'm an offensive security practitioner, with a passion for technical research"
@@ -29,7 +29,7 @@ Despite consulting full-time, I enjoy a bit of research every now and then, whic
     </tr>
 </table>  
 
-My interests include adversary simulation, attack detection, reverse engineering, and in the past mobile security. Occasionally I try my hand at coding, which has resulted to some notable [projects](https://github.com/laripping).
+My interests include adversary simulation, attack detection, reverse engineering, and in the past mobile security. Occasionally I try my hand at coding, which has resulted in some notable [projects](https://github.com/laripping).
 
 
 If you've liked the stuff in here, spotted a mistake or just feel like talking about the Premier League, feel free to contact me on socials. 

@@ -7,11 +7,11 @@ kramdown:
   parse_block_html: true
   auto_ids: true
 
-title:            'Leo Tsaousis'
-tagline:          'My blog'
+title:            'laripping.com'
+tagline:          'Home'
 # this appears after a dot on the tab title 
 
-description:      'Security Consultant / Researcher'
+description:      'Offensive Security'
 url:              https://laripping.github.io
 # this is used (at least) in the search
 
