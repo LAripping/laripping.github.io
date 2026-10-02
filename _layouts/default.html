@@ -5,6 +5,10 @@
 
   <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
 
+    {% if page.layout == 'post' or page.layout == 'page' %}
+      {% include reading-progress.html %}
+    {% endif %}
+
     {% include sidebar.html %}
 
     <main class="container">

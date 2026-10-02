@@ -1,0 +1,24 @@
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+<script>
+  (function () {
+    var bar = document.querySelector('.reading-progress span');
+    if (!bar) { return; }
+    var ticking = false;
+    function update() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var progress = max > 0 ? Math.min(Math.max(doc.scrollTop / max, 0), 1) : 0;
+      bar.style.transform = 'scaleX(' + progress + ')';
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }());
+</script>

@@ -43,15 +43,17 @@ body {
   padding: $section-spacing;
 
   .site-title {
-    // font-family: 'Abril Fatface', serif;
-    font-family: serif;
+    font-family: $site-title-font-family;
     font-size: $large-font-size;
-    font-weight: normal;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: $heading-spacing;
     margin-top: 0;
   }
 
   .site-title .back-arrow { margin-right: 0.5rem; }
+
+  .site-title-dot { color: $accent-color; }
 }
 
 .content {
@@ -115,9 +117,9 @@ body {
   // Center sidebar content
   text-align: center;
 
-  // Bigger title
+  // Bigger title, scaled down to fit narrow screens
   .site-title {
-    font-size: 3.25rem;
+    font-size: clamp(1.5rem, 8vw, 2.25rem);
   }
 
   // Show secondary nav content + lead
@@ -128,6 +130,11 @@ body {
 
   header ~ nav {
     display: flex;
+  }
+
+  // Shrink-wrap centered links so the active marker hangs beside the text
+  #sidebar-nav-links {
+    align-items: center;
   }
 
   // Slightly more bottom padding to compensate for heading not match 100% of
@@ -188,7 +195,7 @@ body {
     }
 
     .site-title {
-      font-size: 3.25rem;
+      font-size: 2.25rem;
       .back-arrow { display: none; }
     }
 
@@ -200,6 +207,10 @@ body {
     header ~ nav {
       display: flex;
     }
+  }
+
+  .home #sidebar-nav-links {
+    align-items: flex-start;
   }
 
   .index #sidebar { margin-bottom: 0; }
@@ -272,6 +283,17 @@ body {
 
 #sidebar a.active {
   font-weight: bold;
+  position: relative;
+
+  // Red ">" marker hanging left of the selected page
+  &::before {
+    color: $accent-color;
+    content: '>';
+    font-family: $code-font-family;
+    padding-right: 0.5ch;
+    position: absolute;
+    right: 100%;
+  }
 }
 
 #sidebar .site-title {
@@ -310,7 +332,43 @@ body {
   margin: 0 0.25em;
 }
 
+/* -----------------------------------------------------------
+  Reading progress bar (posts and pages)
+----------------------------------------------------------- */
+
+.reading-progress {
+  height: 3px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+
+  span {
+    background: $accent-color;
+    display: block;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  @media (min-width: $large-breakpoint) {
+    @if $layout-reverse {
+      right: $sidebar-width;
+    }
+
+    @else {
+      left: $sidebar-width;
+    }
+  }
+}
+
 @media print {
+  .reading-progress {
+    display: none;
+  }
+
   #sidebar {
     display: none;
   }
